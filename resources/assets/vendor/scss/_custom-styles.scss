@@ -1,0 +1,84 @@
+// This file is used for writing your custom styles
+
+:root {
+  --synex-primary: #AF8807;
+  --synex-primary-light: #D2AD36;
+  --synex-primary-dark: #806300;
+  --synex-ink: #2C281F;
+  --synex-muted: #77736A;
+  --synex-ivory: #F7F5EF;
+  --synex-border: #E8E1CF;
+  --synex-table-head: #F1EEE5;
+}
+
+body {
+  background-color: var(--synex-ivory);
+  color: var(--synex-muted);
+}
+
+.navbar .nav-link.active,
+.navbar .show > .nav-link {
+  color: var(--synex-primary) !important;
+}
+
+.layout-navbar {
+  border-bottom: 1px solid var(--synex-border);
+}
+
+.menu .app-brand-text {
+  color: #FFFFFF;
+}
+
+.menu-header .menu-header-text {
+  color: var(--synex-border);
+}
+
+.menu .menu-item.active > .menu-link,
+.menu .menu-item.active > .menu-link .menu-icon {
+  color: var(--synex-primary-light);
+}
+
+.menu .menu-item.active > .menu-link {
+  background-color: rgba(210, 173, 54, .16);
+}
+
+.card {
+  border-color: var(--synex-border);
+}
+
+.table thead th {
+  background-color: var(--synex-table-head);
+  color: var(--synex-ink);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--synex-primary);
+  box-shadow: 0 0 0 .2rem rgba(175, 136, 7, .16);
+}
+
+.btn-primary {
+  --bs-btn-hover-bg: var(--synex-primary-dark);
+  --bs-btn-hover-border-color: var(--synex-primary-dark);
+  --bs-btn-active-bg: var(--synex-primary-dark);
+  --bs-btn-active-border-color: var(--synex-primary-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-hover-bg: var(--synex-primary);
+  --bs-btn-hover-border-color: var(--synex-primary);
+  --bs-btn-active-bg: var(--synex-primary-dark);
+  --bs-btn-active-border-color: var(--synex-primary-dark);
+}
+
+.btn-secondary {
+  --bs-btn-color: var(--synex-primary);
+  --bs-btn-bg: #FFFFFF;
+  --bs-btn-border-color: var(--synex-primary);
+  --bs-btn-hover-color: #FFFFFF;
+  --bs-btn-hover-bg: var(--synex-primary);
+  --bs-btn-hover-border-color: var(--synex-primary);
+  --bs-btn-active-color: #FFFFFF;
+  --bs-btn-active-bg: var(--synex-primary-dark);
+  --bs-btn-active-border-color: var(--synex-primary-dark);
+}

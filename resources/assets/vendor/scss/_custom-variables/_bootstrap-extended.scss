@@ -1,0 +1,71 @@
+// ===================================================================================================================
+// ? TIP:  It is recommended to use this file for overriding bootstrap extended variables (_bootstrap-extended/_variables.scss).
+// Copy and paste variables as needed, modify their values, and remove the !default flag.
+// ===================================================================================================================
+
+// $font-size-root: 14px !default;
+
+$white: #FFFFFF;
+$black: #2C281F;
+$paper-bg: #FFFFFF;
+
+$gray-25: #FCFBF8;
+$gray-60: #F7F5EF;
+$gray-80: #F1EEE5;
+$gray-100: #F7F5EF;
+$gray-200: #E8E1CF;
+$gray-300: #D4CDBD;
+$gray-400: #B8B1A2;
+$gray-500: #969082;
+$gray-600: #77736A;
+$gray-700: #5D584F;
+$gray-800: #403B32;
+$gray-900: #2C281F;
+
+$blue: #3985B9;
+$indigo: #806300;
+$purple: #AF8807;
+$pink: #D64545;
+$red: #D64545;
+$orange: #E49A20;
+$yellow: #E49A20;
+$green: #198754;
+$teal: #198754;
+$cyan: #3985B9;
+
+$primary: #AF8807;
+$secondary: #77736A;
+$success: #198754;
+$info: #3985B9;
+$warning: #E49A20;
+$danger: #D64545;
+$light: #F7F5EF;
+$dark: #2C281F;
+$gray: #77736A;
+
+$body-bg: #F7F5EF;
+$body-color: #77736A;
+$body-secondary-color: #77736A;
+$headings-color: #2C281F;
+$border-color: #E8E1CF;
+$border-color-translucent: rgba(#2C281F, .12);
+
+$input-bg: #FFFFFF;
+$input-border-color: #E8E1CF;
+$input-hover-border-color: #D2AD36;
+$input-focus-border-color: #AF8807;
+
+$navbar-light-color: #2C281F;
+$navbar-light-active-color: #AF8807;
+
+$table-th-color: #2C281F;
+$table-border-color: #E8E1CF;
+
+$card-border-width: 1px;
+$card-border-color: #E8E1CF;
+$card-bg: #FFFFFF;
+$card-box-shadow: 0 .125rem .375rem rgba(#2C281F, .06);
+
+$box-shadow: 0 .1875rem .5rem rgba(#2C281F, .08);
+$box-shadow-sm: 0 .125rem .375rem rgba(#2C281F, .05);
+$box-shadow-lg: 0 .25rem .75rem rgba(#2C281F, .12);

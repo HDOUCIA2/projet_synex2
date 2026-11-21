@@ -1,0 +1,911 @@
+.synex-home2 {
+  overflow: hidden;
+  background: var(--synex-ivory);
+  color: var(--synex-ink);
+}
+
+.synex-home2-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+  color: #FFFFFF;
+  background:
+    linear-gradient(100deg, rgba(35, 32, 27, .82) 0%, rgba(35, 32, 27, .62) 52%, rgba(35, 32, 27, .42) 100%),
+    url('../images/ennedi-au-tchad.webp') center 48% / cover no-repeat;
+}
+
+.synex-home2-hero .container-xxl {
+  position: relative;
+  z-index: 1;
+}
+
+.synex-home2-eyebrow,
+.synex-home2-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  color: var(--synex-primary-light);
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.synex-home2-eyebrow {
+  min-height: 8px;
+  margin-bottom: .35rem;
+}
+
+.synex-home2-eyebrow > span {
+  width: 2rem;
+  height: 3px;
+  border-radius: 2rem;
+  background: var(--synex-primary-light);
+}
+
+.synex-home2-hero h1 {
+  max-width: 760px;
+  margin: 1.2rem 0;
+  color: #FFFFFF;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.08;
+}
+
+.synex-home2-lead {
+  max-width: 650px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, .82);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.synex-home2-btn-ghost {
+  border: 1px solid rgba(255, 255, 255, .65);
+  color: #FFFFFF;
+}
+
+.synex-home2-btn-ghost:hover,
+.synex-home2-btn-ghost:focus {
+  border-color: #FFFFFF;
+  background: #FFFFFF;
+  color: var(--synex-ink);
+}
+
+.synex-home2-overview {
+  width: 100%;
+  padding: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, .08);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .15);
+  backdrop-filter: blur(12px);
+}
+
+.synex-home2-hero-map-wrap {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.synex-home2-hero-map {
+  width: 100%;
+  height: 320px;
+}
+
+.synex-home2-hero-map.leaflet-container {
+  background: transparent;
+  cursor: default;
+}
+
+.synex-home2-hero-map-label {
+  margin-top: -.25rem;
+  color: rgba(255, 255, 255, .72);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.synex-home2-overview-heading,
+.synex-home2-overview-country {
+  display: flex;
+  align-items: center;
+}
+
+.synex-home2-overview-heading {
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .8rem;
+}
+
+.synex-home2-overview-country {
+  gap: .65rem;
+}
+
+.synex-home2-overview-country h2 {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.synex-home2-flag {
+  width: 30px;
+  height: 21px;
+  flex: 0 0 auto;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #002664 0 33.333%, #FECB00 33.333% 66.667%, #C60C30 66.667% 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.synex-home2-live {
+  flex: 0 0 auto;
+  padding: .4rem .65rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, .1);
+  color: #FFFFFF;
+  font-size: .68rem;
+}
+
+.synex-home2-live > span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: .4rem;
+  border-radius: 50%;
+  background: #198754;
+}
+
+.synex-home2-overview-total {
+  display: flex;
+  align-items: baseline;
+  gap: .65rem;
+}
+
+.synex-home2-overview-total strong {
+  color: #FFFFFF;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.synex-home2-overview-total > span,
+.synex-home2-overview-note {
+  color: rgba(255, 255, 255, .72);
+  font-size: .78rem;
+}
+
+.synex-home2-overview-sparkline {
+  display: block;
+  width: 100%;
+  height: 76px;
+  margin: .45rem 0 .55rem;
+  overflow: visible;
+}
+
+.synex-home2-overview-spark-area {
+  fill: url(#synexHome2OverviewArea);
+}
+
+.synex-home2-overview-spark-line {
+  fill: none;
+  stroke: var(--synex-primary-light);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.synex-home2-overview-empty {
+  margin: 1.4rem 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: .78rem;
+}
+
+.synex-home2-overview-divider {
+  height: 1px;
+  margin: .75rem 0 .65rem;
+  background: rgba(255, 255, 255, .18);
+}
+
+.synex-home2-overview-types-title {
+  margin: 0 0 .2rem;
+  color: rgba(255, 255, 255, .7);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.synex-home2-overview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .42rem 0;
+  color: #FFFFFF;
+  font-size: .76rem;
+}
+
+.synex-home2-overview-type-label {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.synex-home2-overview-row strong {
+  flex: 0 0 auto;
+  font-weight: 800;
+}
+
+.synex-home2-dot {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--synex-home2-type-color, var(--synex-primary-light));
+}
+
+.synex-home2-overview-note {
+  display: block;
+  margin-top: .65rem;
+  font-size: .68rem;
+}
+
+.synex-home2-overview-empty {
+  margin: .5rem 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: .76rem;
+}
+
+.synex-home2-feature-wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: -1.6rem;
+}
+
+.synex-home2-feature-bar {
+  overflow: hidden;
+  border: 1px solid var(--synex-border);
+  border-radius: 1rem;
+  background: #FFFFFF;
+  box-shadow: 0 .7rem 2rem rgba(44, 40, 31, .08);
+}
+
+.synex-home2-feature {
+  display: flex;
+  min-height: 112px;
+  align-items: center;
+  gap: .9rem;
+  padding: 1.25rem;
+  color: var(--synex-ink);
+  text-decoration: none;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.synex-home2-feature:hover {
+  background: rgba(210, 173, 54, .08);
+  color: var(--synex-primary-dark);
+}
+
+.synex-home2-feature-icon,
+.synex-home2-stat-icon,
+.synex-home2-panel-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: .8rem;
+  background: rgba(210, 173, 54, .14);
+  color: var(--synex-primary-dark);
+}
+
+.synex-home2-feature-icon {
+  width: 46px;
+  height: 46px;
+  font-size: 1.45rem;
+}
+
+.synex-home2-feature strong,
+.synex-home2-feature small {
+  display: block;
+}
+
+.synex-home2-feature strong {
+  margin-bottom: .28rem;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.synex-home2-feature small {
+  color: var(--synex-muted);
+  font-size: .75rem;
+  line-height: 1.45;
+}
+
+.synex-home2-feature-arrow {
+  margin-left: auto;
+  color: var(--synex-primary);
+}
+
+.synex-home2-section {
+  padding-top: clamp(2.8rem, 6vw, 4.5rem);
+}
+
+.synex-home2-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  margin-bottom: 1.25rem;
+}
+
+.synex-home2-section-heading > span {
+  width: 5px;
+  height: 2.4rem;
+  flex: 0 0 5px;
+  border-radius: 2rem;
+  background: var(--synex-primary);
+}
+
+.synex-home2-section-heading h2 {
+  margin: 0;
+  color: var(--synex-ink);
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+}
+
+.synex-home2-kicker {
+  color: var(--synex-primary-dark);
+  font-size: .66rem;
+}
+
+.synex-home2-stat {
+  display: flex;
+  min-height: 160px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.2rem;
+  border: 1px solid var(--synex-border);
+  border-radius: .9rem;
+  background: #FFFFFF;
+  box-shadow: 0 .25rem .9rem rgba(44, 40, 31, .04);
+}
+
+.synex-home2-stat-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: .8rem;
+  font-size: 1.2rem;
+}
+
+.synex-home2-stat-danger {
+  background: rgba(214, 69, 69, .1);
+  color: #D64545;
+}
+
+.synex-home2-stat > strong {
+  color: var(--synex-ink);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.synex-home2-stat > span:last-child {
+  margin-top: .25rem;
+  color: var(--synex-muted);
+  font-size: .77rem;
+}
+
+.synex-home2-panel {
+  padding: 1.5rem;
+  border: 1px solid var(--synex-border);
+  border-radius: 1rem;
+  background: #FFFFFF;
+  box-shadow: 0 .3rem 1rem rgba(44, 40, 31, .05);
+}
+
+.synex-home2-panel-heading {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  margin-bottom: 1.3rem;
+}
+
+.synex-home2-panel-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+}
+
+.synex-home2-panel-heading h2 {
+  margin: 0;
+  color: var(--synex-ink);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.synex-home2-panel-heading p {
+  margin: .2rem 0 0;
+  color: var(--synex-muted);
+  font-size: .78rem;
+}
+
+.synex-home2-trend-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: .4rem 0 1.3rem;
+  overflow: visible;
+}
+
+.synex-home2-trend-grid {
+  stroke: var(--synex-border);
+  stroke-dasharray: 3 5;
+  stroke-width: 1;
+}
+
+.synex-home2-trend-axis-label,
+.synex-home2-trend-year {
+  fill: var(--synex-muted);
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.synex-home2-trend-area {
+  fill: url(#synexHome2TrendArea);
+}
+
+.synex-home2-trend-line {
+  fill: none;
+  stroke: var(--synex-primary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.synex-home2-trend-point {
+  fill: var(--synex-primary-dark);
+  stroke: #FFFFFF;
+  stroke-width: 2;
+}
+
+.synex-home2-text-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--synex-primary-dark);
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.synex-home2-text-link:hover {
+  color: var(--synex-primary);
+  text-decoration: underline;
+}
+
+.synex-home2-map-panel {
+  padding: 1.25rem;
+}
+
+.synex-home2-map-heading {
+  align-items: center;
+}
+
+.synex-home2-map-heading h2 {
+  font-size: 1.12rem;
+}
+
+.synex-home2-map {
+  height: 350px;
+  overflow: hidden;
+  border: 1px solid var(--synex-border);
+  border-radius: .75rem;
+  background: #F1EEE5;
+}
+
+.synex-home2-map.leaflet-container {
+  background: var(--synex-ivory);
+  font: inherit;
+}
+
+.synex-home2-map-status {
+  margin: .55rem 0 0;
+  color: var(--synex-muted);
+  font-size: .72rem;
+}
+
+.synex-home2-map-status[hidden] {
+  display: none;
+}
+
+.synex-home2-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem .85rem;
+  margin-top: .9rem;
+  color: var(--synex-muted);
+  font-size: .68rem;
+}
+
+.synex-home2-map-legend > strong {
+  flex-basis: 100%;
+  color: var(--synex-ink);
+  font-size: .72rem;
+}
+
+.synex-home2-map-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.synex-home2-legend-chip {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(44, 40, 31, .12);
+  border-radius: 3px;
+}
+
+.synex-home2-legend-50 { background: #806300; }
+.synex-home2-legend-20 { background: #AF8807; }
+.synex-home2-legend-10 { background: #D2AD36; }
+.synex-home2-legend-1 { background: #E8DCA9; }
+.synex-home2-legend-0 { background: #F7F5EF; }
+
+.synex-home2-type-chip {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background: var(--synex-home2-type-color, var(--synex-primary-dark));
+  box-shadow: 0 0 0 1px var(--synex-home2-type-color, var(--synex-primary-dark));
+}
+
+.synex-home2-map-source {
+  display: block;
+  margin-top: .6rem;
+  color: var(--synex-muted);
+  font-size: .63rem;
+}
+
+.synex-home2-marker-cluster {
+  display: grid;
+  place-items: center;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background: rgba(175, 136, 7, .84);
+  box-shadow: 0 0 0 1px var(--synex-primary-dark), 0 .15rem .4rem rgba(44, 40, 31, .22);
+  color: #FFFFFF;
+  font-size: .7rem;
+  font-weight: 800;
+}
+
+.synex-home2-map .leaflet-popup-content-wrapper {
+  border: 1px solid var(--synex-border);
+  border-radius: .75rem;
+  color: var(--synex-ink);
+}
+
+.synex-home2-map .leaflet-popup-content {
+  margin: .85rem 1rem;
+  font: inherit;
+}
+
+.synex-home2-map-popup-title {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--synex-ink);
+  font-size: .9rem;
+}
+
+.synex-home2-map-popup-total {
+  margin-bottom: .55rem;
+  color: var(--synex-muted);
+  font-size: .76rem;
+}
+
+.synex-home2-map-popup-types-title {
+  margin: 0 0 .35rem;
+  color: var(--synex-ink);
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.synex-home2-map-popup-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .18rem 0;
+  font-size: .72rem;
+}
+
+.synex-home2-map-popup-type-label {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: .4rem;
+}
+
+.synex-home2-map-popup-type-label > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.synex-home2-map-popup-type strong {
+  flex: 0 0 auto;
+}
+
+.synex-home2-news-section {
+  padding-bottom: 4.5rem;
+}
+
+.synex-home2-carousel {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: .5rem;
+}
+
+.synex-home2-carousel-viewport {
+  overflow: hidden;
+}
+
+.synex-home2-carousel-track {
+  --home2-visible-cards: 3;
+  display: flex;
+  gap: 1rem;
+  transition: transform .35s ease;
+  will-change: transform;
+}
+
+.synex-home2-news-card {
+  min-width: 0;
+  flex: 0 0 calc((100% - 2rem) / 3);
+  overflow: hidden;
+  border: 1px solid var(--synex-border);
+  border-radius: .9rem;
+  background: #FFFFFF;
+  box-shadow: 0 .3rem 1rem rgba(44, 40, 31, .05);
+}
+
+.synex-home2-news-image {
+  position: relative;
+  display: grid;
+  height: 175px;
+  overflow: hidden;
+  place-items: center;
+  background: linear-gradient(135deg, #F1EEE5, #E8E1CF);
+}
+
+.synex-home2-news-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.synex-home2-news-card:hover .synex-home2-news-image > img {
+  transform: scale(1.04);
+}
+
+.synex-home2-news-placeholder {
+  color: var(--synex-primary);
+  font-size: 2.5rem;
+}
+
+.synex-home2-news-label {
+  position: absolute;
+  top: .8rem;
+  left: .8rem;
+  padding: .3rem .65rem;
+  border-radius: 2rem;
+  background: var(--synex-primary);
+  color: #FFFFFF;
+  font-size: .65rem;
+  font-weight: 700;
+}
+
+.synex-home2-news-body {
+  display: flex;
+  min-height: 235px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.1rem;
+}
+
+.synex-home2-news-date {
+  margin-bottom: .5rem;
+  color: var(--synex-muted);
+  font-size: .72rem;
+}
+
+.synex-home2-news-body h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-bottom: .6rem;
+  color: var(--synex-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.synex-home2-news-summary {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  color: var(--synex-muted);
+  font-size: .8rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.synex-home2-news-body > .synex-home2-text-link {
+  margin-top: auto;
+}
+
+.synex-home2-carousel-button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--synex-border);
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--synex-primary-dark);
+  font-size: 1.35rem;
+}
+
+.synex-home2-carousel-button:hover:not(:disabled) {
+  border-color: var(--synex-primary);
+  background: var(--synex-primary);
+  color: #FFFFFF;
+}
+
+.synex-home2-carousel-button:disabled {
+  cursor: not-allowed;
+  opacity: .4;
+}
+
+.synex-home2-carousel-dots {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: center;
+  gap: .5rem;
+  padding-top: .6rem;
+}
+
+.synex-home2-carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 1rem;
+  background: #D4CDBD;
+}
+
+.synex-home2-carousel-dots button[aria-current="true"] {
+  width: 22px;
+  background: var(--synex-primary);
+}
+
+.synex-home2-carousel [hidden] {
+  display: none !important;
+}
+
+.synex-home2-empty-news {
+  display: grid;
+  min-height: 180px;
+  place-content: center;
+  gap: .6rem;
+  border: 1px dashed var(--synex-border);
+  border-radius: .9rem;
+  color: var(--synex-muted);
+  text-align: center;
+}
+
+.synex-home2-empty-news > i {
+  color: var(--synex-primary);
+  font-size: 2rem;
+}
+
+.synex-home2 :focus-visible {
+  outline: 3px solid var(--synex-primary-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 991.98px) {
+  .synex-home2-feature {
+    min-height: 100px;
+  }
+
+  .synex-home2-feature-bar > div:not(:last-child) .synex-home2-feature {
+    border-bottom: 1px solid var(--synex-border);
+  }
+
+  .synex-home2-carousel-track {
+    --home2-visible-cards: 2;
+  }
+
+  .synex-home2-news-card {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .synex-home2-hero-map {
+    height: 280px;
+  }
+
+  .synex-home2-overview {
+    padding: 1.3rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .synex-home2-hero {
+    padding: 3.25rem 0 4rem;
+  }
+
+  .synex-home2-overview {
+    padding: 1.2rem;
+  }
+
+  .synex-home2-hero-map {
+    width: min(100%, 220px);
+    height: 260px;
+  }
+
+  .synex-home2-overview-total strong {
+    font-size: 2.45rem;
+  }
+
+  .synex-home2-stat {
+    min-height: 140px;
+    padding: .9rem;
+  }
+
+  .synex-home2-stat > strong {
+    font-size: 1.45rem;
+  }
+
+  .synex-home2-panel {
+    padding: 1.15rem;
+  }
+
+  .synex-home2-map {
+    height: 310px;
+  }
+
+  .synex-home2-carousel-track {
+    --home2-visible-cards: 1;
+  }
+
+  .synex-home2-news-card {
+    flex-basis: 100%;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .synex-home2 *,
+  .synex-home2 *::before,
+  .synex-home2 *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

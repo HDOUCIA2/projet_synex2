@@ -1,0 +1,14 @@
+// ================================================================================================
+// ? TIP:  It is recommended to use this file for overriding component variables (_components/_variables.scss).
+// Copy and paste variables as needed, modify their values, and remove the !default flag.
+// ================================================================================================
+
+$menu-bg: #2C281F;
+$menu-bg-rgb: #{to-rgb($menu-bg)};
+$menu-color: #F7F5EF;
+$menu-color-rgb: #{to-rgb($menu-color)};
+$menu-hover-bg: rgba(#FFFFFF, .08);
+$menu-hover-color: #FFFFFF;
+$menu-active-bg: rgba(#D2AD36, .16);
+$menu-active-color: #D2AD36;
+$menu-active-toggle-bg: #806300;

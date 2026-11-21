@@ -1,0 +1,10 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Salle de situation",
+      "icon": "menu-icon icon-base bx bx-home-smile",
+      "slug": "dashboard-analytics"
+    }
+  ]
+}
