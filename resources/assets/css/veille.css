@@ -492,6 +492,97 @@ html.veille-motion-ready [data-veille-animation="zoom-in"]:not(.is-visible) {
   background: #F7F5EF;
 }
 
+.synex-dashboard-map {
+  height: 320px;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid var(--synex-border, #E8E1CF);
+  border-radius: 12px;
+  background: #F7F5EF;
+}
+
+.synex-dashboard-map.leaflet-container {
+  font: inherit;
+}
+
+.synex-dashboard-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem .8rem;
+  margin-top: .65rem;
+  color: var(--synex-muted, #77736A);
+  font-size: .68rem;
+}
+
+.synex-dashboard-map-legend > strong {
+  flex-basis: 100%;
+  color: var(--synex-ink, #2C281F);
+  font-size: .72rem;
+}
+
+.synex-dashboard-map-legend > span,
+.synex-dashboard-map-type-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.synex-dashboard-map-legend i {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid rgba(44, 40, 31, .12);
+  border-radius: 3px;
+}
+
+.synex-dashboard-map-legend .map-level-50 { background: #806300; }
+.synex-dashboard-map-legend .map-level-20 { background: #AF8807; }
+.synex-dashboard-map-legend .map-level-10 { background: #D2AD36; }
+.synex-dashboard-map-legend .map-level-1 { background: #E8DCA9; }
+.synex-dashboard-map-legend .map-level-0 { background: #F7F5EF; }
+
+.synex-dashboard-map-type-legend {
+  display: contents;
+}
+
+.synex-dashboard-map-type-swatch {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: var(--synex-dashboard-type-color, #66798C);
+  box-shadow: 0 0 0 1px var(--synex-dashboard-type-color, #66798C);
+}
+
+.synex-dashboard-map-cluster {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(44, 40, 31, .3);
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+.synex-dashboard-map-cluster span {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--synex-dashboard-cluster-color, #66798C);
+}
+
+@media (max-width: 768px) {
+  .synex-dashboard-map {
+    height: 280px;
+    min-height: 260px;
+  }
+}
+
 .veille-map-legend {
   display: flex;
   flex-wrap: wrap;

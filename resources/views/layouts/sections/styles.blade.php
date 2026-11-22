@@ -19,4 +19,9 @@
 
 <!-- app CSS -->
 @vite(['resources/css/app.css'])
+@auth
+    @if (auth()->user()->isAdmin())
+        @vite('resources/assets/css/admin-dashboard.css')
+    @endif
+@endauth
 <!-- END: app CSS-->

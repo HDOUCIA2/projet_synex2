@@ -256,8 +256,10 @@
 
 .synex-dashboard-two-map {
   height: 205px;
+  overflow: hidden;
+  border: 1px solid #E8E1CF;
   border-radius: 8px;
-  background: linear-gradient(135deg, #fffdfa, #faf4e9);
+  background: #F7F5EF;
 }
 
 .synex-dashboard-two-map .leaflet-container {
@@ -294,12 +296,13 @@
   height: 11px;
   border: 1px solid rgba(0, 0, 0, .08);
   border-radius: 3px;
-  background: #d18810;
 }
 
-.synex-dashboard-two-map-legend span:last-child i {
-  background: #f6ecd7;
-}
+.synex-dashboard-two-map-legend .map-level-50 { background: #806300; }
+.synex-dashboard-two-map-legend .map-level-20 { background: #AF8807; }
+.synex-dashboard-two-map-legend .map-level-10 { background: #D2AD36; }
+.synex-dashboard-two-map-legend .map-level-1 { background: #E8DCA9; }
+.synex-dashboard-two-map-legend .map-level-0 { background: #F7F5EF; }
 
 .synex-dashboard-two-annual-chart {
   min-height: 230px;

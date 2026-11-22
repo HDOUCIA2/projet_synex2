@@ -503,7 +503,7 @@
 }
 
 .synex-home2-map {
-  height: 350px;
+  height: 320px;
   overflow: hidden;
   border: 1px solid var(--synex-border);
   border-radius: .75rem;
@@ -888,7 +888,7 @@
   }
 
   .synex-home2-map {
-    height: 310px;
+    height: 280px;
   }
 
   .synex-home2-carousel-track {

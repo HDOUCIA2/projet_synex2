@@ -264,8 +264,9 @@ class VeilleManagementTest extends TestCase
 
         $this->get(route('veille'))
             ->assertOk()
-            ->assertSee('aria-label="Nombre d’événements approuvés : 1"', false)
-            ->assertSee('aria-label="Nombre d’événements avec décès signalés : 1"', false)
+            ->assertSee('value="all" selected', false)
+            ->assertSee('aria-label="Nombre d’événements approuvés : 2"', false)
+            ->assertSee('aria-label="Nombre d’événements avec décès signalés : 2"', false)
             ->assertSee('aria-label="Nombre de provinces renseignées : 1"', false)
             ->assertSee('chad-adm1.geojson')
             ->assertSee('\u0022latitude\u0022:8.44', false)

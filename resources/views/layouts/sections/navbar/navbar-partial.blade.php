@@ -19,21 +19,78 @@
 
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <!-- Search -->
+    @if (auth()->check() && auth()->user()->isAdmin())
+    <div class="navbar-nav align-items-center synex-admin-topbar">
+        <div>
+            <strong>Tableau de bord administrateur</strong>
+            <small>Gestion des données, du contenu et du paramétrage de SYNEX</small>
+        </div>
+    </div>
+    @else
     <div class="navbar-nav align-items-center">
         <div class="nav-item d-flex align-items-center">
             <i class="icon-base bx bx-search icon-md"></i>
             <input type="text" class="form-control border-0 shadow-none ps-1 ps-sm-2" placeholder="Search..." aria-label="Search...">
         </div>
     </div>
+    @endif
     <!-- /Search -->
     <ul class="navbar-nav flex-row align-items-center ms-auto">
         @auth
+        @if (auth()->user()->isAdmin())
+        <li class="nav-item dropdown synex-admin-notification-dropdown">
+            <a class="nav-link dropdown-toggle hide-arrow synex-admin-notification-toggle" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications : {{ $adminNotificationCount }} élément{{ $adminNotificationCount === 1 ? '' : 's' }} à traiter" title="Notifications">
+                <i class="icon-base bx bx-bell icon-md"></i>
+                @if ($adminNotificationCount > 0)
+                    <span class="synex-admin-notification-count">{{ $adminNotificationCount > 99 ? '99+' : $adminNotificationCount }}</span>
+                @endif
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end synex-admin-notification-menu">
+                <li class="synex-admin-notification-heading">
+                    <strong>Notifications</strong>
+                    <span>{{ $adminNotificationCount }} élément{{ $adminNotificationCount === 1 ? '' : 's' }} à traiter</span>
+                </li>
+                @forelse ($adminNotifications as $notification)
+                    <li>
+                        <a class="synex-admin-notification-item" href="{{ $notification['url'] }}">
+                            <span class="synex-admin-notification-icon synex-admin-notification-{{ $notification['kind'] }}">
+                                <i class="bx {{ $notification['icon'] }}"></i>
+                            </span>
+                            <span class="synex-admin-notification-content">
+                                <strong>{{ $notification['title'] }}</strong>
+                                <span>{{ $notification['detail'] }}</span>
+                                <small>{{ $notification['date']?->format('d/m/Y H:i') }}</small>
+                            </span>
+                        </a>
+                    </li>
+                @empty
+                    <li class="synex-admin-notification-empty">Aucune notification nécessitant une action.</li>
+                @endforelse
+                <li class="synex-admin-notification-footer">
+                    <a href="{{ route('admin.contact.index') }}">Messages ({{ $unreadContactCount }})</a>
+                    <a href="{{ route('admin.events.index', ['status' => 'pending']) }}">À valider ({{ $pendingEventCount }})</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item synex-admin-help">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}#synex-admin-quick-actions" aria-label="Aide et actions rapides" title="Aide et actions rapides">
+                <i class="icon-base bx bx-help-circle icon-md"></i>
+            </a>
+        </li>
+        @endif
         <!-- User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
-            <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle hide-arrow p-0 {{ auth()->user()->isAdmin() ? 'synex-admin-user-toggle' : '' }}" href="javascript:void(0);" data-bs-toggle="dropdown">
                 <div class="avatar avatar-online">
                     <img src="{{ auth()->user()->avatar_path ? asset('storage/'.auth()->user()->avatar_path) : asset('assets/img/avatars/1.png') }}" alt="{{ auth()->user()->name }}" class="w-px-40 h-auto rounded-circle">
                 </div>
+                @if (auth()->user()->isAdmin())
+                    <span class="synex-admin-user-meta">
+                        <strong>{{ auth()->user()->name }}</strong>
+                        <small>Administrateur</small>
+                    </span>
+                    <i class="icon-base bx bx-chevron-down synex-admin-user-chevron" aria-hidden="true"></i>
+                @endif
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li>

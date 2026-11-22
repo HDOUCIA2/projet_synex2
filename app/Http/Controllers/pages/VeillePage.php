@@ -51,7 +51,7 @@ class VeillePage extends Controller
             'province' => ['nullable', 'string', Rule::in($provinces)],
             'event_type' => ['nullable', 'string', Rule::in($eventTypes)],
         ]);
-        $period = $filters['period'] ?? '30';
+        $period = $filters['period'] ?? 'all';
         $events = (clone $approvedEvents)
             ->when($filters['province'] ?? null, fn (Builder $query, $province) => $query->where('province', $province))
             ->when($filters['event_type'] ?? null, fn (Builder $query, $eventType) => $query->where('event_type', $eventType))

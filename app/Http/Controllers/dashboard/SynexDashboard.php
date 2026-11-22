@@ -111,6 +111,7 @@ class SynexDashboard extends Controller
             ->select('province as label')
             ->selectRaw('COUNT(*) AS total')
             ->whereNotNull('province')
+            ->whereRaw("TRIM(province) <> ''")
             ->groupBy('province')
             ->orderByDesc('total')
             ->get();
@@ -175,8 +176,8 @@ class SynexDashboard extends Controller
         $mapPoints = (clone $query)
             ->whereNotNull('latitude')
             ->whereNotNull('longitude')
-            ->whereBetween('latitude', [-90, 90])
-            ->whereBetween('longitude', [-180, 180])
+            ->whereBetween('latitude', [7.44107, 23.4975])
+            ->whereBetween('longitude', [13.47348, 24])
             ->with(['eventTypeRecord', 'subEventRecord', 'actors'])
             ->get()
             ->map(fn (ConflictEvent $event) => [
@@ -193,6 +194,10 @@ class SynexDashboard extends Controller
             ])
             ->values()
             ->all();
+        $mapProvinceCounts = $eventsByProvince
+            ->mapWithKeys(fn ($row) => [$row->label => (int) $row->total])
+            ->all();
+        $mapGeoJsonUrl = asset('assets/geo/chad-adm1.geojson');
 
         $events = (clone $query)
             ->with([
@@ -219,6 +224,8 @@ class SynexDashboard extends Controller
             'filters',
             'localityCount',
             'mapPoints',
+            'mapProvinceCounts',
+            'mapGeoJsonUrl',
             'metricValues',
             'otherEvents',
             'provinces',

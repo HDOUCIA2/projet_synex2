@@ -14,6 +14,7 @@
 @section('content')
 <div class="synex-home2">
   @php
+    $dashboardTarget = auth()->user()?->isAdmin() ? route('admin.dashboard') : route('dashboard-analytics');
     $trendChart = ['left' => 64, 'right' => 620, 'top' => 20, 'bottom' => 190];
     $trendMaximum = max(1, (int) $eventsByYear->max('total'));
     $trendPoints = [];
@@ -98,7 +99,7 @@
               pour une meilleure anticipation des risques et un appui à la prise de décision.
             </p>
             <div class="d-flex flex-wrap gap-3 mt-4">
-              <a href="{{ route('dashboard-analytics') }}" class="btn btn-primary btn-lg">
+              <a href="{{ $dashboardTarget }}" class="btn btn-primary btn-lg">
                 <i class="icon-base bx bx-bar-chart-alt-2 me-1" aria-hidden="true"></i>
                 Accéder au tableau de bord
               </a>
@@ -169,7 +170,7 @@
     <section id="synex-home2-features" class="container-xxl px-4 synex-home2-feature-wrap">
       <div class="row g-0 synex-home2-feature-bar">
         <div class="col-md-4">
-          <a class="synex-home2-feature" href="{{ route('dashboard-analytics') }}">
+          <a class="synex-home2-feature" href="{{ $dashboardTarget }}">
             <span class="synex-home2-feature-icon"><i class="icon-base bx bx-bar-chart-alt-2" aria-hidden="true"></i></span>
             <span><strong>Analyses des conflits</strong><small>Explorez les événements et les tendances.</small></span>
             <i class="icon-base bx bx-right-arrow-alt synex-home2-feature-arrow" aria-hidden="true"></i>
@@ -310,7 +311,7 @@
             @else
               <p class="text-muted mb-0 py-4">Les tendances apparaîtront dès que des événements approuvés auront été enregistrés.</p>
             @endif
-            <a class="synex-home2-text-link" href="{{ route('dashboard-analytics') }}">
+            <a class="synex-home2-text-link" href="{{ $dashboardTarget }}">
               Explorer les analyses
               <i class="icon-base bx bx-right-arrow-alt ms-1" aria-hidden="true"></i>
             </a>

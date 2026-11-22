@@ -1,6 +1,9 @@
 @php
 use Illuminate\Support\Facades\Route;
 @endphp
+@if (auth()->check() && auth()->user()->isAdmin())
+    @include('layouts.sections.menu.adminMenu')
+@else
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
     <!-- ! Hide app brand if navbar-full -->
@@ -76,6 +79,14 @@ use Illuminate\Support\Facades\Route;
 
         @auth
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Administration</span></li>
+        @if (auth()->user()->isAdmin())
+        <li class="menu-item {{ str_starts_with($currentRouteName, 'admin.contact.') ? 'active' : '' }}">
+            <a href="{{ route('admin.contact.index') }}" class="menu-link">
+                <i class="menu-icon icon-base bx bx-envelope"></i>
+                <div>Messages de contact</div>
+            </a>
+        </li>
+        @endif
         <li class="menu-item {{ str_starts_with($currentRouteName, 'admin.events.') ? 'active' : '' }}">
             <a href="{{ route('admin.events.index') }}" class="menu-link">
                 <i class="menu-icon icon-base bx bx-calendar-event"></i>
@@ -107,6 +118,18 @@ use Illuminate\Support\Facades\Route;
                 <div>Actualités du programme</div>
             </a>
         </li>
+        <li class="menu-item {{ str_starts_with($currentRouteName, 'admin.care.') ? 'active' : '' }}">
+            <a href="{{ route('admin.care.index') }}" class="menu-link">
+                <i class="menu-icon icon-base bx bx-first-aid"></i>
+                <div>Prise en charge</div>
+            </a>
+        </li>
+        <li class="menu-item {{ str_starts_with($currentRouteName, 'admin.prevention.') ? 'active' : '' }}">
+            <a href="{{ route('admin.prevention.index') }}" class="menu-link">
+                <i class="menu-icon icon-base bx bx-shield-quarter"></i>
+                <div>Prévention</div>
+            </a>
+        </li>
         <li class="menu-item {{ str_starts_with($currentRouteName, 'admin.users.') ? 'active' : '' }}">
             <a href="{{ route('admin.users.create') }}" class="menu-link">
                 <i class="menu-icon icon-base bx bx-user-plus"></i>
@@ -130,3 +153,4 @@ use Illuminate\Support\Facades\Route;
     </ul>
 
 </aside>
+@endif

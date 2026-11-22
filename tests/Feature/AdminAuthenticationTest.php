@@ -31,7 +31,7 @@ class AdminAuthenticationTest extends TestCase
             ->assertRedirect(route('auth-login-basic'));
     }
 
-    public function test_admin_can_sign_in_with_username(): void
+    public function test_user_can_sign_in_with_username(): void
     {
         $user = User::factory()->create([
             'username' => 'synex-admin',
@@ -72,12 +72,13 @@ class AdminAuthenticationTest extends TestCase
             'username' => 'synex-admin',
             'email' => 'admin@synex.test',
             'password' => 'a-strong-password',
+            'role' => 'admin',
         ]);
 
         $this->post(route('auth.authenticate'), [
             'identifier' => 'admin@synex.test',
             'password' => 'a-strong-password',
-        ])->assertRedirect(route('dashboard-analytics'));
+        ])->assertRedirect(route('admin.dashboard'));
 
         $this->assertAuthenticatedAs($user);
     }

@@ -65,19 +65,19 @@ php artisan key:generate
 yarn
 ```
 
-5. To run the project, you need to run the following command in the project directory. It will compile JavaScript and Styles.
+5. To start the project, run this command from the project directory. It builds the assets first and serves them through Laravel, so the browser does not need to access Vite's private port.
 
 ```bash
-yarn dev
+composer dev
 ```
 
-6. To serve the application, you need to run the following command in the project directory
+After changing CSS or JavaScript, run `npm run build` again. For local development with Vite hot reload, use `composer run-script dev:hot`.
 
-```bash
-php artisan serve
-```
+6. Open the address shown by Laravel, and your application is running.🥳
 
-7. Now navigate to the given address, and you will see your application is running.🥳
+The public « Prise en charge » directory uses `care_centers`, `care_services`, and `care_center_service`. Run `php artisan migrate` to create these tables. Only published centers appear; map coordinates and detail pages require their respective public-display permissions. The confirmed assistance number is configurable with `SYNEX_CARE_ASSISTANCE_PHONE` (default: `1390`).
+
+The public « Prévention » page is available at `/prevention` and can be managed by an administrator at `/admin/prevention`. Run `php artisan migrate` to create its content, initiative, and resource tables. Administrators can update the page copy and indicators, publish documented initiatives, and manage validated PDF resources; provincial totals are checked against the action indicators.
 
 ## Available Tasks 🧑‍💻
 

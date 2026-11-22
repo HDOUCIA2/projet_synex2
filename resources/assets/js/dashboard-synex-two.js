@@ -86,8 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const provinceCounts = new Map(
     data.provinceDistribution.map(item => [normalizeProvince(item.province), Number(item.count)])
   );
-  const maxProvinceCount = Math.max(0, ...provinceCounts.values());
   const map = L.map(mapElement, { zoomControl: false, scrollWheelZoom: false, attributionControl: false });
+  const colorForCount = count => {
+    if (count >= 50) return '#806300';
+    if (count >= 20) return '#AF8807';
+    if (count >= 10) return '#D2AD36';
+    if (count > 0) return '#E8DCA9';
+    return '#F7F5EF';
+  };
 
   fetch(mapElement.dataset.geojsonUrl)
     .then(response => {
@@ -103,12 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
           const count = provinceCounts.get(normalizeProvince(feature.properties?.shapeName)) || 0;
 
           return {
-            color: '#fff',
+            color: '#FFFFFF',
             weight: 1.2,
-            fillColor: count
-              ? (count / Math.max(1, maxProvinceCount) > .62 ? '#a96500' : '#f0a900')
-              : '#f6ecd7',
-            fillOpacity: .88
+            fillColor: colorForCount(count),
+            fillOpacity: count ? .78 : .5
           };
         },
         onEachFeature: (feature, layer) => {

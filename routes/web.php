@@ -26,7 +26,14 @@ use App\Http\Controllers\admin\CsvImportController;
 use App\Http\Controllers\admin\SiteSettingsController;
 use App\Http\Controllers\admin\VeilleController;
 use App\Http\Controllers\admin\ProgramNewsController;
+use App\Http\Controllers\admin\AdminCareController;
 use App\Http\Controllers\pages\ProgramNewsPage;
+use App\Http\Controllers\pages\CarePageController;
+use App\Http\Controllers\pages\PreventionPageController;
+use App\Http\Controllers\pages\ContactPageController;
+use App\Http\Controllers\admin\PreventionController;
+use App\Http\Controllers\admin\ContactSubmissionController;
+use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\cards\CardBasic;
 use App\Http\Controllers\user_interface\Accordion;
 use App\Http\Controllers\user_interface\Alerts;
@@ -63,6 +70,13 @@ Route::get('/home-page-2', HomePageTwo::class)->name('home.page-2');
 Route::get('/veille', [VeillePage::class, 'index'])->name('veille');
 Route::get('/actualites-programme', [ProgramNewsPage::class, 'index'])->name('program-news.index');
 Route::get('/actualites-programme/{news}', [ProgramNewsPage::class, 'show'])->whereNumber('news')->name('program-news.show');
+Route::get('/prise-en-charge', [CarePageController::class, 'index'])->name('public.care.index');
+Route::get('/prise-en-charge/{slug}', [CarePageController::class, 'show'])->name('public.care.show');
+Route::get('/prevention', [PreventionPageController::class, 'index'])->name('prevention');
+Route::get('/contact', [ContactPageController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactPageController::class, 'store'])
+  ->middleware('throttle:5,1')
+  ->name('contact.store');
 Route::get('/dashboard', [SynexDashboard::class, 'index'])->name('dashboard-analytics');
 Route::get('/dashboard-2', [SynexDashboardTwo::class, 'index'])->name('dashboard-analytics-two');
 
@@ -77,7 +91,15 @@ Route::post('/auth/register-basic', [RegisterBasic::class, 'store'])
 
 Route::middleware('auth')->group(function () {
 Route::post('/logout', [LoginBasic::class, 'logout'])->name('logout');
-Route::redirect('/admin', '/admin/events')->name('admin.home');
+Route::get('/admin', function () {
+  return auth()->user()->isAdmin()
+    ? redirect()->route('admin.dashboard')
+    : redirect()->route('admin.events.index');
+})->name('admin.home');
+
+Route::middleware('admin')->group(function () {
+  Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+});
 
 Route::get('/admin/events', [ConflictEventController::class, 'index'])->name('admin.events.index');
 Route::get('/admin/events/create', [ConflictEventController::class, 'create'])->name('admin.events.create');
@@ -91,6 +113,32 @@ Route::post('/admin/import/preview', [CsvImportController::class, 'preview'])->m
 Route::post('/admin/import/commit', [CsvImportController::class, 'commit'])->middleware('throttle:10,1')->name('admin.import.commit');
 
 Route::middleware('admin')->group(function () {
+  Route::get('/admin/contact', [ContactSubmissionController::class, 'index'])->name('admin.contact.index');
+  Route::get('/admin/contact/{submission}', [ContactSubmissionController::class, 'show'])->name('admin.contact.show');
+  Route::post('/admin/contact/{submission}/reply', [ContactSubmissionController::class, 'reply'])->name('admin.contact.reply');
+  Route::delete('/admin/contact/{submission}', [ContactSubmissionController::class, 'destroy'])->name('admin.contact.destroy');
+  Route::get('/admin/prise-en-charge', [AdminCareController::class, 'index'])->name('admin.care.index');
+  Route::put('/admin/prise-en-charge/contenu', [AdminCareController::class, 'updatePageContent'])->name('admin.care.content');
+  Route::put('/admin/prise-en-charge/image', [AdminCareController::class, 'updateCismImage'])->name('admin.care.image');
+  Route::get('/admin/prise-en-charge/create', [AdminCareController::class, 'create'])->name('admin.care.create');
+  Route::post('/admin/prise-en-charge', [AdminCareController::class, 'store'])->name('admin.care.store');
+  Route::get('/admin/prise-en-charge/{careCenter}/edit', [AdminCareController::class, 'edit'])->name('admin.care.edit');
+  Route::put('/admin/prise-en-charge/{careCenter}', [AdminCareController::class, 'update'])->name('admin.care.update');
+  Route::patch('/admin/prise-en-charge/{careCenter}/publication', [AdminCareController::class, 'togglePublication'])->name('admin.care.publication');
+  Route::delete('/admin/prise-en-charge/{careCenter}', [AdminCareController::class, 'destroy'])->name('admin.care.destroy');
+  Route::post('/admin/prise-en-charge/services', [AdminCareController::class, 'storeService'])->name('admin.care.services.store');
+  Route::put('/admin/prise-en-charge/services/{service}', [AdminCareController::class, 'updateService'])->name('admin.care.services.update');
+  Route::delete('/admin/prise-en-charge/services/{service}', [AdminCareController::class, 'destroyService'])->name('admin.care.services.destroy');
+  Route::get('/admin/prevention', [PreventionController::class, 'index'])->name('admin.prevention.index');
+  Route::put('/admin/prevention/contenu', [PreventionController::class, 'updateContent'])->name('admin.prevention.content');
+  Route::get('/admin/prevention/initiatives/create', [PreventionController::class, 'createInitiative'])->name('admin.prevention.initiatives.create');
+  Route::post('/admin/prevention/initiatives', [PreventionController::class, 'storeInitiative'])->name('admin.prevention.initiatives.store');
+  Route::get('/admin/prevention/initiatives/{initiative}/edit', [PreventionController::class, 'editInitiative'])->name('admin.prevention.initiatives.edit');
+  Route::put('/admin/prevention/initiatives/{initiative}', [PreventionController::class, 'updateInitiative'])->name('admin.prevention.initiatives.update');
+  Route::delete('/admin/prevention/initiatives/{initiative}', [PreventionController::class, 'destroyInitiative'])->name('admin.prevention.initiatives.destroy');
+  Route::post('/admin/prevention/ressources', [PreventionController::class, 'storeResource'])->name('admin.prevention.resources.store');
+  Route::put('/admin/prevention/ressources/{resource}', [PreventionController::class, 'updateResource'])->name('admin.prevention.resources.update');
+  Route::delete('/admin/prevention/ressources/{resource}', [PreventionController::class, 'destroyResource'])->name('admin.prevention.resources.destroy');
   Route::get('/admin/actualites', [ProgramNewsController::class, 'index'])->name('admin.program-news.index');
   Route::get('/admin/actualites/create', [ProgramNewsController::class, 'create'])->name('admin.program-news.create');
   Route::post('/admin/actualites', [ProgramNewsController::class, 'store'])->name('admin.program-news.store');
@@ -107,6 +155,10 @@ Route::middleware('admin')->group(function () {
   Route::post('/admin/users', [AdminUserController::class, 'store'])->name('admin.users.store');
   Route::get('/admin/settings/site', [SiteSettingsController::class, 'edit'])->name('admin.settings.site.edit');
   Route::put('/admin/settings/site', [SiteSettingsController::class, 'update'])->name('admin.settings.site.update');
+  Route::post('/admin/settings/site/footer-links', [SiteSettingsController::class, 'storeFooterLink'])->name('admin.settings.site.footer-links.store');
+  Route::put('/admin/settings/site/footer-links/{footerLink}', [SiteSettingsController::class, 'updateFooterLink'])->name('admin.settings.site.footer-links.update');
+  Route::delete('/admin/settings/site/footer-links/{footerLink}', [SiteSettingsController::class, 'destroyFooterLink'])->name('admin.settings.site.footer-links.destroy');
+  Route::patch('/admin/settings/site/footer-pages/{footerLink}/visibility', [SiteSettingsController::class, 'updateFooterPageVisibility'])->name('admin.settings.site.footer-pages.visibility');
   Route::get('/admin/references/{catalog}', [ReferenceController::class, 'index'])->name('admin.references.index');
   Route::post('/admin/references/{catalog}', [ReferenceController::class, 'store'])->name('admin.references.store');
   Route::put('/admin/references/{catalog}/{item}', [ReferenceController::class, 'update'])->name('admin.references.update');

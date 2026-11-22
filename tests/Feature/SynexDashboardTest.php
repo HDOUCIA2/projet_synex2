@@ -91,7 +91,9 @@ class SynexDashboardTest extends TestCase
             ->assertOk()
             ->assertSee('sur 1 événements')
             ->assertSee('window.synexMapPoints')
+        ->assertSee('window.synexMapProvinceCounts')
             ->assertSee('8.1234567')
-            ->assertDontSee('9.9876543');
+        ->assertDontSee('9.9876543')
+        ->assertViewHas('mapProvinceCounts', fn (array $counts) => $counts === ['Mandoul' => 1]);
     }
 }

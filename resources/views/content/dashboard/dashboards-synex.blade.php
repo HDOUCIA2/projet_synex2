@@ -224,7 +224,18 @@
       <span class="badge bg-label-primary">{{ number_format(count($mapPoints), 0, ',', ' ') }} points</span>
     </div>
     <div class="card-body pt-0">
-      <div id="synexEventsMap" role="application" aria-label="{{ $mapSection->title }}" style="height: 460px; min-height: 320px;"></div>
+      <div id="synexEventsMap" class="synex-dashboard-map" role="application" aria-label="{{ $mapSection->title }}"></div>
+      <p id="synexEventsMapStatus" class="small text-muted mt-2 mb-0" role="status">Chargement de la carte locale du Tchad…</p>
+      <div class="synex-dashboard-map-legend" aria-label="Légende de la carte">
+        <strong>Observations par province</strong>
+        <span><i class="map-level-50"></i>50+</span>
+        <span><i class="map-level-20"></i>20–49</span>
+        <span><i class="map-level-10"></i>10–19</span>
+        <span><i class="map-level-1"></i>1–9</span>
+        <span><i class="map-level-0"></i>0</span>
+        <strong>Points GPS par type d’incident</strong>
+        <div id="synexDashboardMapTypeLegend" class="synex-dashboard-map-type-legend"></div>
+      </div>
     </div>
   </div>
 @endif
@@ -232,6 +243,8 @@
 <script>
   window.synexDashboardCharts = @js($chartData);
   window.synexMapPoints = @js($mapPoints);
+  window.synexMapProvinceCounts = @js($mapProvinceCounts);
+  window.synexMapGeoJsonUrl = @js($mapGeoJsonUrl);
   window.synexDeathRateYear = @js($deathRateYear);
 </script>
 

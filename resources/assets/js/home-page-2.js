@@ -241,7 +241,7 @@ function initializeHomePageTwoMap() {
           tap: false,
           touchZoom: false,
           zoomControl: false
-        });
+        }).setView([15, 18.5], 4);
         const heroProvinces = L.geoJSON(boundaries, {
           style: {
             color: '#FFFFFF',
@@ -250,6 +250,7 @@ function initializeHomePageTwoMap() {
             fillOpacity: 0.38
           }
         }).addTo(heroMap);
+        heroMap.fitBounds(heroProvinces.getBounds(), { padding: [8, 8] });
         locatedPoints.forEach(({ point, location }) => {
           L.circleMarker(location, {
             radius: 3.5,
@@ -259,7 +260,6 @@ function initializeHomePageTwoMap() {
             fillOpacity: 1
           }).addTo(heroMap);
         });
-        heroMap.fitBounds(heroProvinces.getBounds(), { padding: [8, 8] });
       }
 
       const markers = L.markerClusterGroup({

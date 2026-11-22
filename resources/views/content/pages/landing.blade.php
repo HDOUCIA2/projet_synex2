@@ -224,6 +224,9 @@
 @endsection
 
 @section('content')
+  @php
+    $dashboardTarget = auth()->user()?->isAdmin() ? route('admin.dashboard') : route('dashboard-analytics');
+  @endphp
 <div class="landing-shell">
   @include('content.pages._public-navbar', ['activePage' => 'home'])
 
@@ -249,7 +252,7 @@
             @if ($hero->description)<p class="lead text-muted mb-4" data-veille-animation="fade-up">{{ $hero->description }}</p>@endif
             <div class="d-flex flex-wrap gap-3 mb-4">
               @if ($hero->button_text)
-                <a href="{{ route('dashboard-analytics') }}" class="btn btn-primary btn-lg px-4">{{ $hero->button_text }} <i class="icon-base bx bx-right-arrow-alt ms-1"></i></a>
+                <a href="{{ $dashboardTarget }}" class="btn btn-primary btn-lg px-4">{{ $hero->button_text }} <i class="icon-base bx bx-right-arrow-alt ms-1"></i></a>
               @endif
               @if ($hero->secondary_button_text)
                 <a href="{{ route('veille') }}" class="btn btn-outline-secondary btn-lg px-4">{{ $hero->secondary_button_text }}</a>
@@ -377,7 +380,7 @@
           @if ($severity->eyebrow)<span class="eyebrow text-primary" data-veille-animation="fade-up">{{ $severity->eyebrow }}</span>@endif
           <h2 class="display-6 fw-bold mt-3 mb-4" data-veille-animation="fade-up">{{ $severity->title }}</h2>
           @if ($severity->description)<p class="text-muted mb-4" data-veille-animation="fade-up">{{ $severity->description }}</p>@endif
-          @if ($severity->button_text)<a href="{{ route('dashboard-analytics') }}" class="btn btn-outline-primary" data-veille-animation="fade-up">{{ $severity->button_text }} <i class="icon-base bx bx-right-arrow-alt ms-1"></i></a>@endif
+          @if ($severity->button_text)<a href="{{ $dashboardTarget }}" class="btn btn-outline-primary" data-veille-animation="fade-up">{{ $severity->button_text }} <i class="icon-base bx bx-right-arrow-alt ms-1"></i></a>@endif
         </div>
         <div class="col-lg-7">
           <div class="veille-card-grid">
@@ -454,7 +457,7 @@
             @if ($cta->description)<p class="text-white-50 mb-0" data-veille-animation="fade-up">{{ $cta->description }}</p>@endif
           </div>
           <div class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
-            @if ($cta->button_text)<a href="{{ route('dashboard-analytics') }}" class="btn btn-light btn-lg px-4" data-veille-animation="fade-left">{{ $cta->button_text }} <i class="icon-base bx bx-right-arrow-alt ms-1"></i></a>@endif
+            @if ($cta->button_text)<a href="{{ $dashboardTarget }}" class="btn btn-light btn-lg px-4" data-veille-animation="fade-left">{{ $cta->button_text }} <i class="icon-base bx bx-right-arrow-alt ms-1"></i></a>@endif
           </div>
         </div>
       </div>

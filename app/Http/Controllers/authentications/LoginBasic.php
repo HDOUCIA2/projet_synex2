@@ -11,7 +11,9 @@ class LoginBasic extends Controller
   public function index()
   {
     if (Auth::check()) {
-      return redirect()->route('dashboard-analytics');
+      return Auth::user()->isAdmin()
+        ? redirect()->route('admin.dashboard')
+        : redirect()->route('dashboard-analytics');
     }
 
     return view('content.authentications.auth-login-basic');
@@ -41,6 +43,10 @@ class LoginBasic extends Controller
     }
 
     $request->session()->regenerate();
+
+    if (Auth::user()->isAdmin()) {
+      return redirect()->route('admin.dashboard');
+    }
 
     return redirect()->intended(route('dashboard-analytics'));
   }

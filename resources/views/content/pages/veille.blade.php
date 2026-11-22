@@ -13,6 +13,7 @@
 
 @section('content')
   @php
+    $dashboardTarget = auth()->user()?->isAdmin() ? route('admin.dashboard') : route('dashboard-analytics');
     $features = $veilleSections->get('home_features');
     $severity = $veilleSections->get('home_severity');
     $iconColors = ['red', 'green', 'blue', 'purple', 'orange'];
@@ -190,7 +191,7 @@
               @endforelse
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-              <a class="veille-link" href="{{ route('dashboard-analytics') }}">
+              <a class="veille-link" href="{{ $dashboardTarget }}">
                 Explorer les événements <i class="icon-base bx bx-right-arrow-alt ms-1" aria-hidden="true"></i>
               </a>
             </div>
@@ -296,7 +297,7 @@
                       @if ($card->description)<p class="card-text small mb-0">{{ $card->description }}</p>@endif
                     </div>
                     <div class="card-footer bg-transparent border-0">
-                      <a class="veille-link" href="{{ route('dashboard-analytics') }}" aria-label="En savoir plus : {{ $card->title }}">
+                      <a class="veille-link" href="{{ $dashboardTarget }}" aria-label="En savoir plus : {{ $card->title }}">
                         <i class="icon-base bx bx-right-arrow-alt me-1" aria-hidden="true"></i>En savoir plus
                       </a>
                     </div>

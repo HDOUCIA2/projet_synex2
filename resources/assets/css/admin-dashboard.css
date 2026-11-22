@@ -1,0 +1,852 @@
+.synex-admin-sidebar {
+  --bs-menu-bg: #222b35;
+  --bs-menu-color: #c6cbd1;
+  --bs-menu-hover-bg: rgba(255, 255, 255, .075);
+  --bs-menu-hover-color: #fff;
+  --bs-menu-active-bg: rgba(201, 147, 53, .16);
+  --bs-menu-active-color: #e4b85e;
+  color: #c6cbd1;
+  background: #222b35 !important;
+}
+
+.synex-admin-sidebar .app-brand {
+  background: #222b35;
+}
+
+.synex-admin-sidebar .app-brand-link,
+.synex-admin-sidebar .app-brand-text {
+  color: #fff !important;
+}
+
+.synex-admin-sidebar .app-brand-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.synex-admin-sidebar .menu-inner {
+  padding-bottom: 1.5rem !important;
+}
+
+.synex-admin-sidebar .menu-header-text {
+  color: #8f9aa5 !important;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+}
+
+.synex-admin-sidebar .menu-link {
+  color: #c6cbd1 !important;
+  margin: 2px 12px;
+  border-radius: 7px;
+  font-size: .82rem;
+}
+
+.synex-admin-sidebar .menu-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, .075);
+}
+
+.synex-admin-sidebar .menu-item.active > .menu-link {
+  color: #f0c66f !important;
+  background: rgba(201, 147, 53, .16);
+  font-weight: 600;
+}
+
+.synex-admin-sidebar .menu-icon {
+  color: #d7ad59 !important;
+}
+
+.synex-admin-sidebar-caption {
+  padding: 0 1.45rem .8rem;
+  color: #a7afb8;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.synex-admin-topbar {
+  min-width: 0;
+  margin-right: auto;
+}
+
+.synex-admin-topbar strong,
+.synex-admin-topbar small {
+  display: block;
+}
+
+.synex-admin-topbar strong {
+  color: #263445;
+  font-size: .91rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.synex-admin-topbar small {
+  margin-top: .12rem;
+  color: #657184;
+  font-size: .72rem;
+  font-weight: 400;
+}
+
+.synex-admin-user-toggle {
+  display: flex !important;
+  align-items: center;
+}
+
+.synex-admin-help .nav-link {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  color: #465361;
+}
+
+.synex-admin-help .nav-link:hover {
+  color: #a77822;
+}
+
+.synex-admin-user-meta {
+  display: none;
+  margin-left: .65rem;
+  text-align: left;
+}
+
+.synex-admin-user-meta strong,
+.synex-admin-user-meta small {
+  display: block;
+}
+
+.synex-admin-user-meta strong {
+  max-width: 180px;
+  overflow: hidden;
+  color: #263445;
+  font-size: .76rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.synex-admin-user-meta small {
+  margin-top: .12rem;
+  color: #657184;
+  font-size: .69rem;
+}
+
+.synex-admin-user-chevron {
+  margin-left: .4rem;
+  color: #657184;
+}
+
+@media (min-width: 1200px) {
+  .synex-admin-user-meta {
+    display: block;
+  }
+}
+
+.synex-admin-notification-toggle {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: #465361;
+}
+
+.synex-admin-notification-toggle:hover {
+  color: #a77822;
+}
+
+.synex-admin-notification-count {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  display: inline-flex;
+  min-width: 17px;
+  height: 17px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+  background: #d84a4a;
+  font-size: .58rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.synex-admin-notification-menu {
+  width: min(390px, calc(100vw - 1.5rem));
+  max-height: min(520px, calc(100vh - 5rem));
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #e8ebef;
+  border-radius: 11px;
+  box-shadow: 0 12px 32px rgba(34, 43, 53, .16);
+}
+
+.synex-admin-notification-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .9rem 1rem;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.synex-admin-notification-heading strong {
+  color: #2f3c49;
+  font-size: .9rem;
+}
+
+.synex-admin-notification-heading > span {
+  color: #8a94a0;
+  font-size: .68rem;
+}
+
+.synex-admin-notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: .8rem 1rem;
+  border-bottom: 1px solid #f0f2f4;
+  text-decoration: none;
+}
+
+.synex-admin-notification-item:hover {
+  background: #faf8f3;
+}
+
+.synex-admin-notification-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #9c762f;
+  background: #faf2e2;
+  font-size: 1rem;
+}
+
+.synex-admin-notification-review {
+  color: #b47720;
+  background: #fff2dd;
+}
+
+.synex-admin-notification-draft {
+  color: #526d82;
+  background: #eaf1f5;
+}
+
+.synex-admin-notification-content {
+  display: block;
+  min-width: 0;
+}
+
+.synex-admin-notification-content strong,
+.synex-admin-notification-content > span,
+.synex-admin-notification-content small {
+  display: block;
+}
+
+.synex-admin-notification-content strong {
+  overflow: hidden;
+  color: #344352;
+  font-size: .76rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.synex-admin-notification-content > span {
+  overflow: hidden;
+  margin-top: .13rem;
+  color: #778391;
+  font-size: .7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.synex-admin-notification-content small {
+  margin-top: .25rem;
+  color: #9aa2ac;
+  font-size: .64rem;
+}
+
+.synex-admin-notification-empty {
+  padding: 1.5rem 1rem;
+  color: #8993a0;
+  font-size: .78rem;
+  text-align: center;
+}
+
+.synex-admin-notification-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .7rem 1rem;
+  background: #fafbfc;
+}
+
+.synex-admin-notification-footer a {
+  color: #987023;
+  font-size: .69rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.synex-admin-dashboard {
+  color: #273443;
+}
+
+.synex-admin-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  min-height: 132px;
+  padding: 1.4rem 1.6rem;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #fff;
+  background:
+    linear-gradient(100deg, rgba(20, 29, 44, .96) 0%, rgba(42, 37, 55, .72) 55%, rgba(143, 88, 42, .3) 100%),
+    url('../images/ennedi-au-tchad.webp') center 54% / cover;
+  box-shadow: 0 12px 30px rgba(34, 43, 53, .13);
+}
+
+.synex-admin-hero-accent {
+  flex: 0 0 10px;
+  align-self: stretch;
+  min-height: 64px;
+  border-radius: 7px;
+  background: #d99700;
+}
+
+.synex-admin-hero h1 {
+  margin: 0 0 .35rem;
+  color: #fff;
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+}
+
+.synex-admin-hero p {
+  margin: 0;
+  color: rgba(255, 255, 255, .78);
+  font-size: .9rem;
+}
+
+.synex-admin-hero-button {
+  flex: 0 0 auto;
+  padding: .7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, .6);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 600;
+}
+
+.synex-admin-hero-button:hover {
+  border-color: #e6bd69;
+  color: #f4cd7b;
+}
+
+.synex-admin-stat,
+.synex-admin-panel,
+.synex-admin-quality {
+  border: 1px solid #e9edf1;
+  border-radius: 11px;
+  box-shadow: 0 4px 16px rgba(28, 39, 49, .035);
+}
+
+.synex-admin-stat .card-body {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  min-height: 112px;
+  padding: .9rem 1rem;
+}
+
+.synex-admin-stat-copy {
+  min-width: 0;
+}
+
+.synex-admin-stat p {
+  margin: .12rem 0 .1rem;
+  color: #263445;
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.synex-admin-stat strong {
+  display: block;
+  color: #a84900;
+  font-size: 1.65rem;
+  line-height: 1.2;
+}
+
+.synex-admin-stat small {
+  display: block;
+  margin-top: .2rem;
+  color: #939ca7;
+  font-size: .68rem;
+}
+
+.synex-admin-stat-icon,
+.synex-admin-panel-icon,
+.synex-admin-quality-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  color: #a77822;
+  background: #fbf3e3;
+  font-size: 1.1rem;
+}
+
+.synex-admin-stat-icon {
+  flex: 0 0 62px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  color: #d08400;
+  background: #fff4df;
+  font-size: 1.75rem;
+}
+
+.synex-admin-stat-icon-warning { color: #b47720; background: #fff4e2; }
+.synex-admin-stat-icon-success { color: #26836d; background: #e7f5f0; }
+.synex-admin-stat-icon-violet { color: #7061a8; background: #f0edfa; }
+.synex-admin-stat-icon-blue { color: #43799f; background: #eaf3f9; }
+.synex-admin-stat-icon-teal { color: #338c88; background: #e8f5f3; }
+
+.synex-admin-panel .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.25rem .25rem;
+  border: 0;
+  background: transparent;
+}
+
+.synex-admin-panel .card-header h2,
+.synex-admin-quality h2 {
+  margin: 0;
+  color: #273443;
+  font-size: .96rem;
+  font-weight: 700;
+}
+
+.synex-admin-panel .card-header p,
+.synex-admin-quality-heading p {
+  margin: .25rem 0 0;
+  color: #8b95a1;
+  font-size: .72rem;
+}
+
+.synex-admin-panel-icon {
+  flex: 0 0 auto;
+  color: #9c762f;
+  background: #faf4e9;
+}
+
+.synex-admin-chart {
+  min-height: 250px;
+}
+
+.synex-admin-chart-donut {
+  min-height: 265px;
+}
+
+.synex-admin-chart-empty {
+  display: flex;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #8b95a1;
+  font-size: .82rem;
+  text-align: center;
+}
+
+.synex-admin-map-panel .card-header {
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: .8rem;
+}
+
+.synex-admin-map-panel .card-body {
+  padding-top: .5rem;
+}
+
+.synex-admin-map-total {
+  flex: 0 0 auto;
+  padding: .45rem .7rem;
+  border-radius: 20px;
+  color: #80621f;
+  background: #fbf3e3;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.synex-admin-map {
+  height: 320px;
+  overflow: hidden;
+  border: 1px solid #E8E1CF;
+  border-radius: .75rem;
+  background: #F7F5EF;
+}
+
+.synex-admin-map.leaflet-container {
+  background: #F7F5EF;
+  font: inherit;
+}
+
+.synex-admin-map-status {
+  margin: .55rem 0 0;
+  color: #7e8995;
+  font-size: .7rem;
+}
+
+.synex-admin-map-legend {
+  display: grid;
+  gap: .75rem;
+  margin-top: .9rem;
+  padding: .85rem 1rem;
+  border-radius: 8px;
+  background: #fafbfc;
+}
+
+.synex-admin-map-legend-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem 1rem;
+  color: #65717e;
+  font-size: .7rem;
+}
+
+.synex-admin-map-legend-row strong {
+  margin-right: .25rem;
+  color: #344352;
+  font-size: .71rem;
+}
+
+.synex-admin-map-legend-row > span {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.synex-admin-map-swatch {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--synex-map-swatch, #66798c);
+}
+
+.synex-admin-map-swatch-none { background: #F7F5EF; border: 1px solid #c7c9c4; }
+.synex-admin-map-swatch-low { background: #E8DCA9; }
+.synex-admin-map-swatch-medium { background: #D2AD36; }
+.synex-admin-map-swatch-high { background: #AF8807; }
+.synex-admin-map-swatch-highest { background: #806300; }
+
+.synex-admin-map-attribution {
+  margin: .55rem 0 0;
+  color: #939ca6;
+  font-size: .64rem;
+}
+
+.synex-admin-map-zone-tooltip {
+  width: 82px;
+  padding: .16rem .26rem !important;
+  border: 1px solid rgba(255, 255, 255, .9) !important;
+  border-radius: 4px !important;
+  color: #293542 !important;
+  background: rgba(255, 255, 255, .88) !important;
+  box-shadow: 0 1px 3px rgba(34, 43, 53, .16) !important;
+  font-size: .58rem !important;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+}
+
+.synex-admin-map-zone-name,
+.synex-admin-map-zone-count {
+  display: block;
+}
+
+.synex-admin-map-zone-name {
+  font-weight: 600;
+}
+
+.synex-admin-map-zone-tooltip::before {
+  display: none !important;
+}
+
+.synex-admin-map-cluster {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, .85);
+  border-radius: 50%;
+  color: #fff;
+  background: var(--synex-admin-cluster-color, #66798c);
+  box-shadow: 0 1px 5px rgba(34, 43, 53, .3);
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.synex-admin-map-cluster span {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.synex-admin-quality {
+  border-color: #e5e9e9;
+  background: linear-gradient(145deg, #fff, #f8faf9);
+}
+
+.synex-admin-quality .card-body {
+  padding: 1.25rem;
+}
+
+.synex-admin-quality-heading {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+
+.synex-admin-quality-icon {
+  width: 39px;
+  height: 39px;
+  color: #2e8a73;
+  background: #e5f4ed;
+  font-size: 1.3rem;
+}
+
+.synex-admin-quality-rate {
+  margin: 1.4rem 0 .6rem;
+  color: #273443;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.synex-admin-quality-rate span {
+  margin-left: .1rem;
+  color: #318b74;
+  font-size: 1.25rem;
+}
+
+.synex-admin-quality-progress {
+  height: 7px;
+  border-radius: 9px;
+  background: #e8eeeb;
+}
+
+.synex-admin-quality-progress .progress-bar {
+  border-radius: 9px;
+  background: #3a957b;
+}
+
+.synex-admin-quality-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-top: 1rem;
+  color: #75808c;
+  font-size: .73rem;
+}
+
+.synex-admin-quality-detail strong {
+  flex: 0 0 auto;
+  color: #344352;
+}
+
+.synex-admin-text-link {
+  color: #987023;
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.synex-admin-events-table {
+  margin: .5rem 0 0;
+  font-size: .76rem;
+}
+
+.synex-admin-events-table thead th {
+  padding: .7rem .8rem;
+  color: #8993a0;
+  background: #fafbfc;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.synex-admin-events-table tbody td {
+  padding: .75rem .8rem;
+  color: #5f6b79;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.synex-admin-events-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.synex-admin-event-title {
+  display: block;
+  color: #344352;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.synex-admin-event-title:hover {
+  color: #a77822;
+}
+
+.synex-admin-events-table td small {
+  display: block;
+  margin-top: .15rem;
+  color: #969faa;
+  font-size: .66rem;
+}
+
+.synex-admin-status {
+  display: inline-block;
+  padding: .27rem .5rem;
+  border-radius: 20px;
+  color: #82621e;
+  background: #fbf2df;
+  font-size: .65rem;
+  font-weight: 600;
+}
+
+.synex-admin-status-approved { color: #27765f; background: #e7f4ed; }
+.synex-admin-status-rejected { color: #a04c4c; background: #f9eaea; }
+.synex-admin-status-unknown { color: #6a7480; background: #edf0f3; }
+
+.synex-admin-empty {
+  padding: 2rem !important;
+  color: #8993a0 !important;
+  text-align: center;
+}
+
+.synex-admin-quick-actions {
+  padding-top: .5rem;
+}
+
+.synex-admin-quick-actions > a {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid #eef0f2;
+  color: #718090;
+  text-decoration: none;
+}
+
+.synex-admin-quick-actions > a:last-child {
+  border-bottom: 0;
+}
+
+.synex-admin-quick-actions > a > span {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  color: #a77822;
+  background: #fbf3e3;
+  font-size: 1.15rem;
+}
+
+.synex-admin-quick-actions > a > div {
+  flex: 1;
+}
+
+.synex-admin-quick-actions strong,
+.synex-admin-quick-actions small {
+  display: block;
+}
+
+.synex-admin-quick-actions strong {
+  color: #344352;
+  font-size: .78rem;
+}
+
+.synex-admin-quick-actions small {
+  margin-top: .15rem;
+  color: #949da8;
+  font-size: .67rem;
+}
+
+.synex-admin-quick-actions > a:hover strong,
+.synex-admin-quick-actions > a:hover > i {
+  color: #a77822;
+}
+
+@media (max-width: 767.98px) {
+  .synex-admin-topbar small {
+    display: none;
+  }
+
+  .synex-admin-topbar strong {
+    font-size: .75rem;
+  }
+
+  .synex-admin-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .synex-admin-hero-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .synex-admin-stat .card-body {
+    min-height: 104px;
+    padding: .8rem;
+    gap: .6rem;
+  }
+
+  .synex-admin-stat-icon {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.45rem;
+  }
+
+  .synex-admin-map-panel .card-header {
+    flex-direction: column;
+  }
+
+  .synex-admin-map {
+    height: 280px;
+  }
+
+  .synex-admin-map-zone-tooltip {
+    width: 72px;
+    padding: .1rem .16rem !important;
+    font-size: .5rem !important;
+  }
+}

@@ -1,6 +1,6 @@
 .synex-public-footer {
-  border-top: 3px solid #AF8807;
-  background: #2C281F;
+  border-top: 3px solid #c6a337;
+  background: #211a13;
   color: #FFFFFF;
 }
 
@@ -16,9 +16,11 @@
   display: grid;
   width: 44px;
   height: 44px;
+  flex: 0 0 44px;
   place-items: center;
-  border-radius: .7rem;
-  background: rgba(210, 173, 54, .12);
+  border-radius: .5rem;
+  object-fit: contain;
+  background: rgba(255, 255, 255, .08);
 }
 
 .synex-public-footer-brand strong,
@@ -27,44 +29,99 @@
 }
 
 .synex-public-footer-brand strong {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .synex-public-footer-brand small {
   margin-top: .15rem;
   color: rgba(255, 255, 255, .64);
-  font-size: .73rem;
+  font-size: .9rem;
 }
 
 .synex-public-footer-description {
-  max-width: 430px;
+  max-width: 360px;
   margin: 1rem 0 0;
-  color: rgba(255, 255, 255, .68);
-  font-size: .82rem;
+  color: rgba(255, 255, 255, .7);
+  font-size: 1rem;
   line-height: 1.65;
 }
 
 .synex-public-footer h2 {
-  margin: .25rem 0 .85rem;
+  margin: .25rem 0 1.1rem;
   color: #FFFFFF;
-  font-size: .88rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
-.synex-public-footer nav > a,
-.synex-public-footer > div > .row > div > a,
-.synex-public-footer p {
+.synex-public-footer-links > a {
   display: block;
   width: fit-content;
-  margin: .45rem 0;
-  color: rgba(255, 255, 255, .68);
-  font-size: .8rem;
+  margin: .65rem 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 1rem;
   text-decoration: none;
 }
 
-.synex-public-footer nav > a:hover,
-.synex-public-footer > div > .row > div > a:hover {
-  color: #D2AD36;
+.synex-public-footer-links > a:hover,
+.synex-public-footer-bottom a:hover {
+  color: #e2c36b;
+}
+
+.synex-public-footer-location img {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.synex-public-footer-location p {
+  margin: .6rem 0 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 1rem;
+}
+
+.synex-public-footer-contact {
+  display: block;
+  width: fit-content;
+  margin-top: .55rem;
+  color: rgba(255, 255, 255, .72);
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.synex-public-footer-contact:hover {
+  color: #e2c36b;
+}
+
+.synex-public-footer-social {
+  display: flex;
+  gap: .55rem;
+  margin-top: 1.2rem;
+}
+
+.synex-public-footer-social a,
+.synex-public-footer-social span {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.synex-public-footer-social a {
+  transition: background-color .15s ease, color .15s ease;
+}
+
+.synex-public-footer-social a:hover {
+  border-color: #e2c36b;
+  background: #e2c36b;
+  color: #211a13;
 }
 
 .synex-public-footer-bottom {
@@ -72,15 +129,85 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: .75rem 1.5rem;
-  padding: 1rem 0;
+  align-items: center;
+  padding: 1.15rem 0;
   border-top: 1px solid rgba(255, 255, 255, .14);
   color: rgba(255, 255, 255, .55);
-  font-size: .72rem;
+  font-size: .8rem;
+}
+
+.synex-public-footer-bottom nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+}
+
+.synex-public-footer-bottom a {
+  color: rgba(255, 255, 255, .62);
+  text-decoration: none;
 }
 
 @media (max-width: 575.98px) {
   .synex-public-footer-logo {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  .synex-public-footer .row {
+    --bs-gutter-y: 2rem;
+  }
+
+  .synex-public-footer-brand strong {
+    font-size: 1.35rem;
+  }
+
+  .synex-public-footer-description,
+  .synex-public-footer-links > a,
+  .synex-public-footer-location p,
+  .synex-public-footer-contact {
+    font-size: 1.1rem;
+  }
+
+  .synex-public-footer h2 {
+    margin-bottom: .8rem;
+    font-size: 1.25rem;
+  }
+
+  .synex-public-footer-location img {
+    width: min(45vw, 170px);
+  }
+
+  .synex-public-footer-social a,
+  .synex-public-footer-social span {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .synex-public-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: .9rem;
+  }
+
+  .synex-public-footer-bottom nav {
+    gap: .75rem 1rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .synex-public-footer .row {
+    --bs-gutter-y: 2.25rem;
+  }
+
+  .synex-public-footer-description,
+  .synex-public-footer-links > a,
+  .synex-public-footer-location p,
+  .synex-public-footer-contact {
+    font-size: 1.05rem;
+  }
+
+  .synex-public-footer h2 {
+    font-size: 1.15rem;
   }
 }

@@ -115,7 +115,13 @@
       <article class="synex-dashboard-two-card synex-dashboard-two-panel synex-dashboard-two-map-panel">
         <h2><i class="bx bxs-map-alt"></i> Répartition des observations par province</h2>
         <div id="synexDashboardTwoMap" class="synex-dashboard-two-map" data-geojson-url="{{ asset('assets/geo/chad-adm1.geojson') }}" role="img" aria-label="Carte des observations par province au Tchad"></div>
-        <div class="synex-dashboard-two-map-legend"><span><i></i> Province couverte (avec données)</span><span><i></i> Aucune donnée disponible</span></div>
+        <div class="synex-dashboard-two-map-legend" aria-label="Légende des observations par province">
+          <span><i class="map-level-50"></i>50+</span>
+          <span><i class="map-level-20"></i>20–49</span>
+          <span><i class="map-level-10"></i>10–19</span>
+          <span><i class="map-level-1"></i>1–9</span>
+          <span><i class="map-level-0"></i>0</span>
+        </div>
       </article>
       <article class="synex-dashboard-two-card synex-dashboard-two-panel">
         <h2><i class="bx bx-bar-chart-alt-2"></i> Évolution annuelle des observations</h2>
